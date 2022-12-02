@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 require('dotenv').config
 const staff = require("../controller/staff.controller");
-
+// login
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', { session: false }, (err, staff, info) => {
         if (err) {
