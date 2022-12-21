@@ -23,4 +23,7 @@ db.students = require("./student.model.js")(sequelize, Sequelize);
 db.staffs = require("./staff.model")(sequelize, Sequelize);
 db.subdivision = require("./subdivition.model")(sequelize, Sequelize);
 
+db.subdivision.hasMany(db.students);
+db.students.belongsTo(db.subdivision);
+
 module.exports = db;

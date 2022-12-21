@@ -1,8 +1,11 @@
 const router = require('express').Router()
 const student = require("../controller/student.controller");
-
+// const uploadCon = require("../controller/upload.controller");
+const upload = require("../middleware/upload");
 // Create a new student
 router.post("/", student.create);
+
+router.post("/upload", upload.single("image"), student.create)
 
 // Retrieve all student
 router.get("/", student.findAll);

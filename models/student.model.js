@@ -8,11 +8,19 @@ module.exports = (sequelize, Sequelize) => {
       },
       student_id: {
         type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false
       },
       year_class: {
         type: Sequelize.STRING
+      },
+      image:{
+        type: Sequelize.STRING
+      },
+      tal:{
+        type: Sequelize.STRING
+      },
+      gpa:{
+        type: Sequelize.FLOAT
       }
     });
   

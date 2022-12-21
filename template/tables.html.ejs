@@ -1,0 +1,46 @@
+<div class="container" style="margin-top: 20px;">
+    <p class="ml-10" style="font-size: 0.89rem;">ใบรับสมัครนักศึกษาจ้างงาน</p>
+    <div class="flex flex-row mt-10 justify-between">
+        <div style="margin-left: 220px; margin-top: -100px;" class="flex flex-col basis-1/2 justify-evenly">
+            <p class="text-3xl text-center font-bold">สถานกีฬาและสุขภาพ มทส.</p>
+        </div>
+        <div class="basis-1/2">
+            <img src="http://localhost:3000/api/image/<%= rows[0].image %>" width="200px" height="250px" style="border-radius: 6px;">
+        </div>
+    </div>
+   
+    <div class="ml-10 mt-10">
+        <% for(var i=0; i < rows.length; i++){ %>
+            <p>
+                <b class="mr-4">ชื่อ - สกุล </b>
+                <%= rows[i].fname %>
+                <%= rows[i].lname %>
+                <b class="mr-4 ml-5">รหัสนักศึกษา </b>
+                <%= rows[i].student_id %>
+                <b class="mr-4 ml-5">ชั้นปีที่ </b>
+                <%= rows[i].year_class %>
+            </p>
+            <p>
+                <b class="mr-4">ผลการเรียน (เกรดเฉลี่ย) </b>
+                <%= rows[i].gpa %>
+                <b class="mr-4 ml-5">โทรศัพท์มือถือ </b>
+                <%= rows[i].tal %>
+            </p>
+            <p>
+                <b class="mr-4">สนใจสมัครงาน </b>
+                <%= rows[i].subdivision.title %>
+            </p>
+
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <% let date= rows[i].createdAt;let thaiDate=date.toLocaleString('th-TH',{ weekday:'long', year:'numeric', month:'long',day:'numeric' }) %>
+        <div class="ml-10">
+            <p class="text-center">(ลงชื่อ).................................................................ผู้สมัคร</p>
+            <p class="text-center"> (<%= rows[i].fname %>
+                    <%= rows[i].lname %>) </p>
+            <p class="text-center">
+                <%= thaiDate %>
+            </p>
+        </div>
+        <% } %>
+</div>
